@@ -1,0 +1,43 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Регистрация{% endblock %}
+
+{% block content %}
+
+    <div class="registration-page">
+        <div class="registration-heading text-center">
+            <h1>Регистрация аккаунта</h1>
+            <p>Пожалуйста, заполните форму</p>
+        </div>
+        <div class="registration-form w-100 d-flex justify-content-center">
+            <form action="." method="post" class="m-0">
+                <div class="mb-3">
+                    <label for="registrationNameInput">Ім'я:</label>
+                    {{user_form.first_name}}
+                </div>
+                <div class="mb-3">
+                    <label for="registrationLoginInput">Логін:</label>
+                    {{user_form.username}}
+                </div>
+                <div class="mb-3">
+                    <label for="registrationEmailInput">Пошта:</label>
+                    {{user_form.email}}
+                </div>
+                <div class="mb-3">
+                    <label for="registrationPassword1Input">Пароль:</label>
+                    {{user_form.password}}
+                </div>
+                <div class="mb-3">
+                    <label for="registrationPassword2Input">Підтвердіть пароль:</label>
+                    {{user_form.password2}}
+                </div>
+                
+                {% csrf_token %}
+                <div class="registration-form__actions">
+                    <input type="submit" value="Зареєструватися" class="btn btn-success w-100">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

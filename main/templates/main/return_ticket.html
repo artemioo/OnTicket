@@ -1,0 +1,18 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Сдача билета {% endblock %}
+
+{% block content %}
+    <div class="return-ticket__page vh-100 d-flex flex-column align-items-center justify-content-center">
+        <p> Что бы вернуть билет, введите его номер и нажмите Вернуть. </p>
+        <p>Средства будут возвращены в течении пару дней.</p>
+        <div class="return-ticket__form">
+            <form action="" class="m-0 d-flex flex-column">
+                <input type="text" id="ticket-return-input" placeholder="Ваш номер білету" class="form-control">
+                <div class="return-ticket__form--actions">
+                    <input type="submit" value="Повернути" class="btn btn-warning w-100 mt-2">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

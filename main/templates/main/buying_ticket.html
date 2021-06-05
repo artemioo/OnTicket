@@ -1,0 +1,41 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Покупка билета{% endblock %}
+
+{% block content %}
+    <div class="buying-ticket__page">
+        <div class="buying-ticket__body d-flex">
+            <div class="buying-ticket__image">
+                <img src="http://fc-metalist.com/club/foto/osk_metalist_sektory.jpg" title="Стадион">
+            </div>
+            <div class="buying-ticket__right-side d-flex flex-column justify-content-center">
+                <div class="buying-ticket__text text-center">
+                    <p>Покупка билета на матч</p>
+                    <p>
+                        <b>
+                            {{ match.title }} 
+                        </b>
+                    </p>
+                    <p>
+                        Осталось билетов - {{ match.numb_tickets }}
+                    </p> 
+                </div>
+                <form method="post" class="buying-ticket__form m-0">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="sector">Сектор:</label>
+                        <input type="text" id="sector" placeholder="Ваш сектор" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="place">Місце:</label>
+                        <input type="text" id="place" placeholder="Ваше місце" class="form-control">
+                    </div>
+    
+                     <div class="buying-ticket__form--actions">
+                         <a href="{% url 'confirm'  slug=match.slug %}" class="btn btn-success w-100"> Купить билет </a>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
