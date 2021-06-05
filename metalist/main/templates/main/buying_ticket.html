@@ -1,0 +1,23 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Покупка билета{% endblock %}
+
+{% block content %}
+    <div class="m_details">
+        <div class="m_details--body">
+            <p>Покупка билета на матч <br> {{ match.title }} <br>
+                Осталось билетов - {{ match.numb_tickets }}
+            </p>
+            <img src="http://fc-metalist.com/club/foto/osk_metalist_sektory.jpg" title="Стадион" height="300px" width="420">
+            <form method="post">
+                {% csrf_token %}
+                 <label> Сектор </label> <input> <br>
+                 <label> Место  </label> <input>
+            </form>
+
+        </div>
+        <div class="m_details--actions">
+            <a href="{% url 'confirm'  slug=match.slug %}" class="btn btn-success"> Купить билет </a>
+        </div>
+    </div>
+{% endblock %}

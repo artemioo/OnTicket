@@ -1,0 +1,18 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Информация о матче {% endblock %}
+
+{% block content %}
+    <div class="m_details">
+        <div class="m_details--body">
+            <img src="{{ post.photo.url }}" class="mb-3">
+            <p class="font-weight-bold">{{ post.title }}</p>
+            <p>{{ post.date }}</p>
+            <p>{{ post.price }} грн</p>
+            <p>Билетов в наличии: {{ post.numb_tickets}}</p>
+        </div>
+        <div class="m_details--actions">
+            <a href="{% url 'buying_ticket' slug=post.slug %}" class="btn btn-success"> Купить билет </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Покупка билета{% endblock %}
+
+{% block content %}
+    <div class="m_details">
+        <div class="m_details--body">
+            <p>Вы успешно купили билет на матч {{ match.title }} <br>
+                Вы можете его <a href="{% url 'check' title=match.title %}" class="btn btn-success"> распечатать </a>
+        </div>
+        <div class="m_details--actions">
+
+        </div>
+    </div>
+{% endblock %}

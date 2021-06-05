@@ -1,0 +1,9 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Любимые {% endblock %}
+
+{% block content %}
+    <div class="favorite">
+        <p>У вас пока нет любимой команды, вы можете ее <a href="{% url 'add_favorite' %}"> Добавить</a> </p>
+    </div>
+{% endblock %}

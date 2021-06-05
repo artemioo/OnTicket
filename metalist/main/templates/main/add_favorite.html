@@ -1,0 +1,30 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Добавление любимой команды {% endblock %}
+
+{% block content %}
+
+<section class="d-flex flex-wrap py-3 align-items-stretch">
+    {% for t in teams %}
+        <div class="card__wrap--outer m-3 mw-100 text-dark">
+            <div class="card__wrap--inner h-100">
+                <div class="card p-3 h-100 d-flex flex-column justify-content-between align-items-center">
+                    <img src="{{ t.photo.url }}" class="card-img-top" alt="...">
+                    <div class="card__body">
+                        <h5 class="card-title text-center">{{ t.name }}</h5>
+                        <p class="card-text ">Тренер: {{ t.coach }}</p>
+                        {% if t.president != '' %}
+                            <p class="card-text">Президент: {{ t.president }}</p>
+                        {% endif %}
+                        <p class="card-text" >Год основания: {{ t.year }}</p>
+                        <div class="card__actions">
+                               <a href="{% url 'my_fav' name=t.name  %}" class="btn btn-primary">Выбрать команду</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
