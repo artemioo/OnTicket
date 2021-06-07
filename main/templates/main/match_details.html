@@ -12,7 +12,9 @@
             <p>Билетов в наличии: {{ post.numb_tickets}}</p>
         </div>
         <div class="m_details--actions">
+
             <a href="{% url 'buying_ticket' slug=post.slug %}" class="btn btn-success"> Купить / Забронировать билет </a>
+
         </div>
     </div>
 {% endblock %}
