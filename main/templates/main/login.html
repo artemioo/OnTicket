@@ -1,0 +1,39 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Личный кабинет {% endblock %}
+
+{% block content %}
+    <div class="login-page">
+        <div class="page-title">
+            <h2 class="text-center">
+                Авторизація
+            </h2>
+        </div>
+        <div class="login-form">
+            <form  action="." method="post" class="auth-form">
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    {{form.username}}
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    {{form.password}}
+                </div>
+
+                <div class="form-action d-flex align-items-stretch w-100">
+                    <input type="submit" value="Log in" class="btn btn-primary d-block w-100">
+                    <a href="{% url 'register' %}" class="btn btn-success w-100">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

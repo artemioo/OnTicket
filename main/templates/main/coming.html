@@ -1,0 +1,15 @@
+{% extends 'main/home.html' %}
+
+{% block title %} Ближайшие матчи {% endblock %}
+
+{% block content %}
+            <ul class="matches__wrapper">
+        {% for el in m2 %}
+                <li class="match">
+                    <img src="{{ el.photo.url }}">
+                    <h3> <a href="{% url 'match_details' slug=el.slug  %}">{{ el.title }}</a></h3>
+                    <p>{{ el.date }}</p>
+                </li>
+        {% endfor %}
+            </ul>
+{% endblock %}
